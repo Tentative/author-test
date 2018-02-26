@@ -24,7 +24,31 @@ class AuthTest extends Module
     $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
     parent::__construct();
 
-    }
+   }
 
+  public function install()
+  {
+    if (Shop::isFeatureActive())
+        Shop::setContext(Shop::CONTEXT_ALL);
 
+    if (!parent::install() ||
+        !$this->registerHook('leftColumn') ||
+        !$this->registerHook('header') ||
+        !Configuration::updateValue('AUTH_TEST', 'my friend')
+    )
+      return false;
+
+      return true;
+  }
+
+  public function uninstall()
+  {
+    if (!parent::uninstall() ||
+        !Configuration::deleteByName('AUTH_TEST')
+    )
+    return false;
+
+    return true;
+  }
+  
 }
