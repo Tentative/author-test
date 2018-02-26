@@ -3,7 +3,8 @@ if (!defined('_PS_VERSION_'))
 {
   exit;
 }
-class AuthTest extends Module
+
+class MyModule extends Module
 {
   public function __construct()
   {
@@ -17,17 +18,13 @@ class AuthTest extends Module
 
     parent::__construct();
 
-    $this->displayName = $this->l('My module');
-    $this->description = $this->l('Description of my module.');
+    $this->displayName = $this->l('Author Test');
+    $this->description = $this->l('Just an hopeless test.');
 
     $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
+    parent::__construct();
 
-    if (!Configuration::get('MYMODULE_NAME'))
-      $this->warning = $this->l('No name provided');
-  }
+    }
+
+
 }
-parent::__construct();
-$this->displayName = $this->l('Author Test');
-$this->description = $this->l('Just an hopeless test.');
-
-$this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
