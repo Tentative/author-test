@@ -51,7 +51,8 @@ class AuthTest extends Module
     return true;
   }
 
-  public function getContent()
+  // this code add configuration option in module selection tab: not for now
+  /** public function getContent()
   {
     $output = null;
    
@@ -69,7 +70,7 @@ class AuthTest extends Module
           }
       }
       return $output.$this->displayForm();
-  }
+  }*/
 
-  
+
 }
