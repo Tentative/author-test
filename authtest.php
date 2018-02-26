@@ -4,7 +4,7 @@ if (!defined('_PS_VERSION_'))
   exit;
 }
 
-class MyModule extends Module
+class AuthorTest extends Module
 {
   public function __construct()
   {
