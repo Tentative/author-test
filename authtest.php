@@ -9,8 +9,8 @@ class AuthTest extends Module
   {
     $this->name = 'authtest';
     $this->tab = 'front_office_features';
-    $this->version = '1.0.0';
-    $this->author = 'Firstname Lastname';
+    $this->version = '0.0.5';
+    $this->author = 'Giacomo Micoli';
     $this->need_instance = 0;
     $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
     $this->bootstrap = true;
@@ -26,3 +26,10 @@ class AuthTest extends Module
       $this->warning = $this->l('No name provided');
   }
 }
+parent::__construct();
+$this->displayName = $this->l('Author Test');
+$this->description = $this->l('Just an hopeless test.');
+
+$this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
+if (!Configuration::get('MYMODULE_NAME'))
+    $this->warning = $this->l('No name provided.');
