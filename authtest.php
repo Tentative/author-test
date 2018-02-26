@@ -31,5 +31,3 @@ $this->displayName = $this->l('Author Test');
 $this->description = $this->l('Just an hopeless test.');
 
 $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
-if (!Configuration::get('MYMODULE_NAME'))
-    $this->warning = $this->l('No name provided.');
