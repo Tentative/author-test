@@ -50,5 +50,26 @@ class AuthTest extends Module
 
     return true;
   }
+
+  public function getContent()
+  {
+    $output = null;
+   
+    if (Tools::isSubmit('submit'.$this->name))
+      {
+        $auth_test = strval(Tools::getValue('AUTH_TEST'));
+          if (!$auth_test
+            || empty($auth_test)
+            || !Validate::isGenericName($auth_test))
+            $output .= $this->displayError($this->l('Invalid Configuration value'));
+          else
+          {
+            Configuration::updateValue('AUTH_TEST', $auth_test);
+            $output .= $this->displayConfirmation($this->l('Settings updated'));
+          }
+      }
+      return $output.$this->displayForm();
+  }
+
   
 }
