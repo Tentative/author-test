@@ -4,7 +4,7 @@ if (!defined('_PS_VERSION_'))
   exit;
 }
 
-class AuthorTest extends Module
+class AuthTest extends Module
 {
   public function __construct()
   {
