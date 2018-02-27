@@ -51,6 +51,27 @@ class AuthTest extends Module
     return true;
   }
 
+  public function hookDisplayLeftColumn($params)
+  {
+    $this->context->smarty->assign(
+      array(
+        'my_module_name' => Configuration::get('AUTH_TEST'),
+        'my_module_link' => $this->context->link->getModuleLink('authtest', 'display')
+      )
+    );
+    return $this->display(__FILE__, 'authtest.tpl');
+  }
+ 
+  public function hookDisplayRightColumn($params)
+  {
+    return $this->hookDisplayLeftColumn($params);
+  }
+ 
+  public function hookDisplayHeader()
+  {
+    $this->context->controller->addCSS($this->_path.'/view/css/mymodule.css', 'all');
+  }
+
   // this code add configuration option in module selection tab: not for now
   /** public function getContent()
   {
